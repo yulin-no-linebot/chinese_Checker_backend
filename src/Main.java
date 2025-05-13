@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Main started.");
 
-        Board board = new Board();
+        Board board = new Board(4);
         for(Position pos : board.getValidPositions()){
             System.out.println(pos);
         }

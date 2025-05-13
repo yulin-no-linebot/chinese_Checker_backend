@@ -7,43 +7,22 @@ import java.util.*;
 public class Board {
 
     private final Map<Position, Piece> board;  // 每個位置對應的棋子（若有）
-    private final List<Position> validPositions = new ArrayList<>();
-    public static final int radius = 4;
+    private final Set<Position> validPositions = new HashSet<>();
+    public final int triRadius;
 
-    public Board() {
+    public Board(int triRadius) {
+        this.triRadius = triRadius;
         this.board = new HashMap<>();
-        validPositions.addAll(initialize_hexagon());
-    }
+        validPositions.addAll(BoardInitializer.addBoardToValidPosition(this.triRadius));
 
-    //初始化中間六角形
-    private List<Position> initialize_hexagon() {
-        List<Position> results = new ArrayList<>();
-        // 邏輯迴圈
-        for(int q = -radius ; q <= radius; q++){
-            for(int r = -radius; r <= radius; r++){
-                if(Math.abs(-q-r) <= radius){
-                    Position pos = new Position(q, r);
-                    results.add(pos);
-                }
-            }
-        }
-        return results;
-    }
-
-    private List<Position> initialize_triangle() {
-
-        return List.of();
     }
 
 
-
-
-
-
-    public List<Position> getValidPositions(){
+    public Set<Position> getValidPositions() {
         return this.validPositions;
     }
 
+    private int getTriRadius(){ return this.triRadius; }
 
 }
 
