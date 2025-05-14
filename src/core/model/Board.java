@@ -7,22 +7,19 @@ import java.util.*;
 public class Board {
 
     private final Map<Position, Piece> board;  // 每個位置對應的棋子（若有）
-    private final Set<Position> validPositions = new HashSet<>();
-    public final int triRadius;
+    private final Map<Position, PlayerColor> validPositions;
 
-    public Board(int triRadius) {
-        this.triRadius = triRadius;
+    public Board() {
         this.board = new HashMap<>();
-        validPositions.addAll(BoardInitializer.addBoardToValidPosition(this.triRadius));
+        this.validPositions = BoardInitializer.addBoardToValidPosition();
 
     }
 
 
-    public Set<Position> getValidPositions() {
+    public Map<Position, PlayerColor> getValidPositions() {
         return this.validPositions;
     }
 
-    private int getTriRadius(){ return this.triRadius; }
 
 }
 
