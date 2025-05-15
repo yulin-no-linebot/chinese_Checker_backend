@@ -15,11 +15,13 @@ public class Board {
 
     }
 
-
     public Map<Position, PlayerColor> getValidPositions() {
         return this.validPositions;
     }
-
-
+    
+    public Map<Position, Piece> getBoardMap() {
+        return this.board;
+    }
+    
 }
 
